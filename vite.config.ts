@@ -8,13 +8,19 @@
 
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import viteTagger from "vite-tagger";
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    viteTagger({ prefixName: "wb" }),
+  ],
   build: {
     outDir: 'dist',
   },
   server: {
+    host: "::",
+    port: 8080,
     open: true,
   },
 });
